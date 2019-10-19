@@ -17,6 +17,7 @@ let trivia = [
 
 ];
 
+
 let correctAnswers = 0;
 let incorrectAnswers = 0;
 let unAnswered = 0;
@@ -41,29 +42,37 @@ $(document).ready(function () {
         $("#question").hide()
         $(".answer").hide()
         $("#timer").hide()
-        $(".display-right-answer").hide()
+        $("#display-right-answer").hide()
         $("#good-job").hide()
         $("#not-quite").hide()
         $(".score").hide()
     }
 
     function questionGenerator () {
-        $("#question").show().text(trivia[currentQuestion].question)
-        $(".answer").show()
-        $("#timer").show()
-        $("#game-rules").hide()
-        $("#start-button").hide()
-        $(".display-right-answer").hide()
-        $("#good-job").hide()
-        $("#not-quite").hide()
-        
-        $("#answer-one").text(`a) ${trivia[currentQuestion].answers[0]}`)
-        $("#answer-two").text(`b) ${trivia[currentQuestion].answers[1]}`)
-        $("#answer-three").text(`c) ${trivia[currentQuestion].answers[2]}`)
-        $("#answer-four").text(`d) ${trivia[currentQuestion].answers[3]}`)
+        questionCheck ()
+
+        if (gameStart) {
+            generateTimer ()
+
+            $("#question").show().text(trivia[currentQuestion].question)
+            $(".answer").show()
+            $("#timer").show()
+            $("#game-rules").hide()
+            $("#start-button").hide()
+            $("#display-right-answer").hide()
+            $("#good-job").hide()
+            $("#not-quite").hide()
+            
+            $("#answer-one").text(`a) ${trivia[currentQuestion].answers[0]}`)
+            $("#answer-two").text(`b) ${trivia[currentQuestion].answers[1]}`)
+            $("#answer-three").text(`c) ${trivia[currentQuestion].answers[2]}`)
+            $("#answer-four").text(`d) ${trivia[currentQuestion].answers[3]}`)
+        }
     }
 
     function generateTimer () {
+
+        let counter = 5;
 
         function run() {
             clearInterval(intervalId);
@@ -76,9 +85,10 @@ $(document).ready(function () {
             if (counter === 0) {
                 clearInterval(intervalId);
                 unAnswered++
+                console.log(unAnswered)
                 currentQuestion++
                 $(".answer").hide()
-                $(".display-right-answer").show()
+                $("#display-right-answer").show()
                 $("#timer").hide()
                 setTimeout(questionGenerator, 4000);
             }
@@ -93,7 +103,7 @@ $(document).ready(function () {
 
     function captureUserAnswer () {
         clearInterval(intervalId);
-        // questionChecker();
+        questionCheck ()
     
         if (gameStart === false) {
           return false;
@@ -121,18 +131,37 @@ $(document).ready(function () {
         $("#timer").hide()
 
         setTimeout(questionGenerator, 4000);
+        let counter = 5;
+        clearInterval(intervalId);
+        generateTimer ()
     }
 
     function wrongAnswer () {
         currentQuestion++
         $(".answer").hide()
-        $(".display-right-answer").show()
+        $("#display-right-answer").show()
         $("#good-job").hide()
         $("#not-quite").show().text("Not quite!")
         $("#timer").hide()
 
         setTimeout(questionGenerator, 4000);
+        let counter = 5;
+        clearInterval(intervalId);
+        generateTimer ()
     }
 
+
+    function questionCheck () {
+        if (currentQuestion === trivia.length) {
+            gameStart = false;
+            initialScreen ()
+            $(".score").show()
+            clearInterval(intervalId);
+
+            $("#right").show().text(`Correct: ${correctAnswers}`)
+            $("#wrong").show().text(`Incorrect: ${incorrectAnswers}`)
+            $("#unanswered").show().text(`Unanswered: ${unAnswered}`)
+        }
+    }
 
 });
