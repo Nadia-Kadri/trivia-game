@@ -18,6 +18,7 @@ let trivia = [
 ];
 
 
+
 let correctAnswers = 0;
 let incorrectAnswers = 0;
 let unAnswered = 0;
@@ -86,9 +87,12 @@ $(document).ready(function () {
                 clearInterval(intervalId);
                 unAnswered++
                 console.log(unAnswered)
+                
+                $("#display-right-answer").show().text(`The correct answer was: ${trivia[currentQuestion].answers[trivia[currentQuestion].rightAnswer]}`)
+
                 currentQuestion++
+
                 $(".answer").hide()
-                $("#display-right-answer").show()
                 $("#timer").hide()
                 setTimeout(questionGenerator, 4000);
             }
@@ -137,9 +141,12 @@ $(document).ready(function () {
     }
 
     function wrongAnswer () {
+        
+        $("#display-right-answer").show().text(`The correct answer was: ${trivia[currentQuestion].answers[trivia[currentQuestion].rightAnswer]}`)
+
         currentQuestion++
+
         $(".answer").hide()
-        $("#display-right-answer").show()
         $("#good-job").hide()
         $("#not-quite").show().text("Not quite!")
         $("#timer").hide()
