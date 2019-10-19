@@ -10,22 +10,60 @@
 </head>
 <body>
     
-    <div class="container custcontainer">
+    <div class="container custom-container">
 
-        <div class="row text-center">
-            <h1 class="col-sm-12">Trivia!</h1>
-        </div>
 
-        <div class="row text-center">
-            <div class="col-sm-12" id="button">
-                <!-- <button id="button"></button> -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="jumbotron">
+                    <h1>Trivia!</h1>
+                    <p id="game-rules">Here are the game rules!</p>
+                    <button id="start-button">Start</button>
+                </div>
             </div>
         </div>
 
-        <div class="row text-center">
-            <div class="col-sm-12" id="question"></div>
-            <div class="col-sm-12" id="answers"></div>
+
+        <div class="row">
+            <div class="col-sm-12" id="question">question</div>
         </div>
+            
+
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="answer" id="answer-one" value=0>a</p>
+                <p class="answer" id="answer-two" value=1>b</p>
+                <p class="answer" id="answer-three" value=2>c</p>
+                <p class="answer" id="answer-four" value=3>d</p>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <p id="timer">Seconds Remaining: <span id="seconds"></span></p>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="display-right-answer">
+                    <p>The correct answer was: </p>
+                    <img>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="score" id="right">Correct: </p>
+                <p class="score" id="wrong">Incorrect: </p>
+                <p class="score" id="unanswered">Unanswered: </p>
+            </div>
+        </div>
+
 
     </div>
 
