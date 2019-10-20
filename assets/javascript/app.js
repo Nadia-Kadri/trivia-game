@@ -52,7 +52,7 @@ let unAnswered = 0;
 
 let gameStart = false;
 let currentQuestion = 0;
-let counter = 5;
+let counter = 20;
 let intervalId;
 
 $(document).ready(function () {
@@ -103,7 +103,7 @@ $(document).ready(function () {
 
     function generateTimer () {
 
-        let counter = 5;
+        let counter = 20;
 
         function run() {
             clearInterval(intervalId);
@@ -171,7 +171,7 @@ $(document).ready(function () {
         $("#timer").hide()
 
         setTimeout(questionGenerator, 4000);
-        let counter = 5;
+        let counter = 20;
         clearInterval(intervalId);
         generateTimer ()
     }
@@ -191,7 +191,7 @@ $(document).ready(function () {
         $("#timer").hide()
 
         setTimeout(questionGenerator, 4000);
-        let counter = 5;
+        let counter = 20;
         clearInterval(intervalId);
         generateTimer ()
     }
