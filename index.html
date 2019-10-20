@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Travel Trivia</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -18,7 +18,9 @@
                 <div class="jumbotron">
                     <h1>Travel Trivia!</h1>
                     <p id="game-rules">Think you're a savvy world traveler? <br> Take this Travel Trivia quiz to see just how well you know this beautiful world of ours. <br> To start, click the button below.
-                    </p>
+                    </p> 
+                    <img id="start-image" src="assets/images/ross-parmly-rf6ywHVkrlY-unsplash.jpg" alt="airplane"> 
+                    <br><br>
                     <button id="start-button">Click here to begin</button>
                 </div>
             </div>
@@ -26,9 +28,10 @@
 
 
         <div class="row">
-            <div class="col-sm-12 text-center" id="question">question</div>
+            <div class="col-sm-12 text-center" id="question"></div>
         </div>
-            
+        
+        <br>
 
         <div class="row">
             <div class="col-sm-12 text-center">
@@ -49,13 +52,6 @@
 
         <div class="row">
             <div class="col-sm-12 text-center">
-                <div id="good-job"></div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-sm-12 text-center">
                 <div id="not-quite"></div>
             </div>
         </div>
@@ -63,7 +59,17 @@
 
         <div class="row">
             <div class="col-sm-12 text-center">
-                <div id="display-right-answer">The correct answer is:</div>
+                <div id="display-right-answer"></div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <div id="good-job"></div> 
+                <div id="flag">
+                    <img id="flag-image">
+                </div>
             </div>
         </div>
 
